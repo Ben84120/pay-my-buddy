@@ -35,6 +35,14 @@ public class UserService {
         return userRepository.findUserByLastName(lastName);
     }
 
+    public User saveUser(User user){
+        return userRepository.save(user);
+    }
+
+    public void deleteUserById(Integer id){
+        userRepository.deleteById(id);
+    }
+
 }
 
 
