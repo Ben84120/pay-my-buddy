@@ -15,7 +15,7 @@ public class TransferService {
 
     @Autowired
     TransferRepository transferRepository;
-    private Date date;
+
 
     public Optional<Transfer> getTransferById(Integer id) {
         return transferRepository.findById(id);
@@ -25,26 +25,23 @@ public class TransferService {
         return transferRepository.findAll();
     }
 
-    public Optional<Transfer> getTransferBySenderId(Integer id_sender){
+    public Optional<Transfer> getTransferBySenderId(Integer id_sender) {
         return transferRepository.findTransferBySenderId(id_sender);
     }
 
-    public Optional<Transfer> getTransferByReceiverId(Integer id_receiver){
+    public Optional<Transfer> getTransferByReceiverId(Integer id_receiver) {
         return transferRepository.findTransferByReceiverId(id_receiver);
     }
 
-    public Iterable<Transfer> getTransferByDate(Date date){
-        this.date = date;
+    public Iterable<Transfer> getTransferByDate(Date date) {
         return transferRepository.findTransferByDate(date);
     }
 
-    public Transfer saveTransfer(Transfer transfer){
-
+    public Transfer saveTransfer(Transfer transfer) {
         return transferRepository.save(transfer);
     }
 
-    public void deleteTransferById(Integer id){
-
+    public void deleteTransferById(Integer id) {
         transferRepository.deleteById(id);
     }
 
